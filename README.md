@@ -159,18 +159,18 @@ separate documents so the SVG gradient IDs can't collide when both appear on a p
 
 ## The QR code
 
-`assets/qr-laredo.svg` encodes `https://endurosolutionstrade.com/laredo.html` — for your
+`assets/qr-laredo.svg` encodes `https://endurosolutionstrade.com/laredo` — for your
 badge, booth collateral and email signature.
 
 > **Scan-test it with a phone before you send anything to print.** It was generated
-> programmatically and has been checked structurally (33×33 modules, version 4, error
+> programmatically and has been checked structurally (29×29 modules, version 3, error
 > correction M) but has not been scanned by a real device.
 
 To regenerate after a URL change:
 
 ```bash
 curl -o assets/qr-laredo.svg \
-  "https://api.qrserver.com/v1/create-qr-code/?size=800x800&margin=8&ecc=M&format=svg&data=https%3A%2F%2Fendurosolutionstrade.com%2Flaredo.html"
+  "https://api.qrserver.com/v1/create-qr-code/?size=800x800&margin=8&ecc=M&format=svg&data=https%3A%2F%2Fendurosolutionstrade.com%2Flaredo"
 ```
 
 ---
