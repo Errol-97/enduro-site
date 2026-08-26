@@ -116,8 +116,7 @@ npm run serve          # http://localhost:8080
 
 ---
 
-## The old Trilink site
+## Other domains
 
-`trilinkglobaltrade.com` and the `trilink-landing` repo are untouched and still live. Once
-this site is up, you can point that domain here by replacing its `CNAME` contents and DNS —
-or just leave it running until you're ready.
+Any previously registered domain can be pointed here later by updating its DNS to the same
+four GitHub A records and adding it as an alternate custom domain.

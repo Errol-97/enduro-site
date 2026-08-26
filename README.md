@@ -204,8 +204,7 @@ grep -rniE 'mileone|LEDC|TAMIU|laredo college' *.html   # each hit must be factu
 
 ---
 
-## Not touched
+## Scope
 
-`~/trilink-hub` (the Next.js app) and `~/trilink-landing` / `trilinkglobaltrade.com` are
-untouched and still running. Once this site is live, consider redirecting the old domain
-here.
+This repo is the Enduro Solutions marketing site only. Other local projects and any
+previously registered domains are untouched.
