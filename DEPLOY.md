@@ -1,61 +1,26 @@
 # Going live on endurosolutionstrade.com
 
-Everything local is ready: `main` branch, 2 commits, `CNAME` set, remote pointed at
-`git@github.com:Errol-97/enduro-site.git`. Your SSH key to GitHub works.
+## Status
 
-Four steps. About 10 minutes of work, then up to an hour of waiting for DNS and the TLS
-certificate.
+| Step | State |
+|---|---|
+| Repo `Errol-97/enduro-site` created, public | **done** |
+| `main` pushed | **done** |
+| GitHub Pages enabled (`main` / root) | **done** — build succeeded |
+| Custom domain registered with Pages | **done** — read from `CNAME` |
+| All 7 pages + assets verified serving 200 | **done** |
+| **DNS at Squarespace** | **you** — see below |
+| HTTPS enforced | automatic once DNS resolves |
 
----
+Repo: <https://github.com/Errol-97/enduro-site>
 
-## 1. Create the GitHub repo
-
-Your `gh` CLI token has expired, so either:
-
-**Option A — web (fastest)**
-
-Go to <https://github.com/new>, name it exactly **`enduro-site`**, set it **Public**, and do
-**not** add a README, .gitignore or licence (the repo already has commits). Click *Create*.
-
-**Option B — CLI**
-
-```bash
-gh auth login -h github.com        # re-authenticate, then:
-cd ~/enduro-site
-gh repo create enduro-site --public --source=. --push
-```
-
-If you use Option B, skip step 2.
+The content is already deployed and serving from GitHub's edge. The only thing standing
+between it and the public is DNS: `endurosolutionstrade.com` still resolves to Squarespace's
+parking servers.
 
 ---
 
-## 2. Push
-
-```bash
-cd ~/enduro-site
-git push -u origin main
-```
-
----
-
-## 3. Turn on GitHub Pages
-
-In the repo: **Settings → Pages**
-
-- **Source:** Deploy from a branch
-- **Branch:** `main`, folder `/ (root)` → **Save**
-
-The *Custom domain* field should auto-populate with `endurosolutionstrade.com` from the
-committed `CNAME` file. If it doesn't, type it in and save.
-
-It'll warn that DNS isn't configured yet. That's expected — step 4 fixes it.
-
-Within a minute or two the site will be live at
-`https://errol-97.github.io/enduro-site/` so you can check it before DNS switches over.
-
----
-
-## 4. Point the domain at GitHub
+## Point the domain at GitHub
 
 The domain is registered at **Squarespace Domains** and currently points at Squarespace's own
 servers. You need to replace those records.
@@ -92,7 +57,7 @@ All four A records are required — they're GitHub's four Pages servers.
 
 ---
 
-## 5. Enable HTTPS
+## Enable HTTPS
 
 Wait for DNS to propagate (usually 15–60 minutes; the domain is brand new so there's no stale
 cache to clear). Check progress:
