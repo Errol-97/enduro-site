@@ -8,46 +8,46 @@ Live domain: `endurosolutionstrade.com`
 
 ---
 
-## Before you go live — 2 required items
+## Before you go live
 
-The site is complete and functional except for these. Both are one-line changes.
+**Nothing is blocking.** The site is complete and every contact path works with no accounts,
+services or API keys. Deploy whenever you're ready.
 
-### 1. Contact email
+### How contact works, and why there's no form
 
-Every page currently uses **`errol@endurosolutionstrade.com`**. I assumed this from the
-domain — if your real address differs, change it everywhere:
+GitHub Pages serves static files only — it cannot run server code, so an HTML `<form>` has
+nowhere to submit to. The usual fix is a third-party relay like [Formspree](https://formspree.io),
+which needs an account and an endpoint ID pasted into the markup.
 
-```bash
-cd ~/enduro-site
-grep -rl 'errol@endurosolutionstrade.com' . --exclude-dir=node_modules \
-  | xargs sed -i '' 's|errol@endurosolutionstrade.com|YOUR@ADDRESS.com|g'
-```
+Rather than ship forms that silently fail until that's configured, each contact section is a
+**direct-contact block**: a prominent `mailto:` link with a pre-filled subject line, a "Save
+contact" vCard download, and a LinkedIn link. Zero setup, nothing to break mid-outreach, and
+the pre-filled subject makes triage easier when replies land.
 
-### 2. Contact form endpoint
+Subject lines by page:
 
-The three forms post to a placeholder. **Until this is set, the forms will not deliver** —
-the `mailto:` fallback under each form still works.
+| Page | Subject |
+|---|---|
+| `index.html` | Enduro IQ - conversation request |
+| `laredo.html` | Pathways for Trade - Laredo |
+| `partners.html` | Trade partner enquiry |
 
-1. Create a free form at <https://formspree.io> and copy its ID (e.g. `xdkogqpv`).
-2. Then:
+**If you'd rather have a real form later**, sign up at Formspree, then wrap the fields in
+`<form action="https://formspree.io/f/YOUR_ID" method="POST">`. Keep the `mailto:` link
+alongside it as a fallback. A Calendly link would drop into the same slot.
 
-```bash
-cd ~/enduro-site
-sed -i '' 's|formspree.io/f/YOUR_FORM_ID|formspree.io/f/YOUR_ACTUAL_ID|g' *.html
-```
+### Optional additions
 
-3. Submit the form once on the live site and confirm the email arrives.
+- **Founder photo** — drop a square image at `assets/errol-rochester.jpg`, then uncomment the
+  `<img>` already in place in the Founder section of `about.html`.
+- **Phone number** — deliberately not published. Your resume lists `(803) 979-6159`; add it to
+  the contact blocks and `assets/errol-rochester.vcf` if you want it public. Bear in mind a
+  number on a public page attracts cold calls.
 
-> Prefer Calendly? Replace each `<form>` block with a link to your booking page instead.
+### Contact details currently published
 
-### Optional
-
-- **Founder photo** — drop a square image at `assets/errol-rochester.jpg` and add an `<img>`
-  in the Founder section of `about.html` (there is a `TODO` comment marking the spot).
-- **Phone number** — not currently published anywhere. Add to the contact sections and to
-  `assets/errol-rochester.vcf` if you want it public.
-- **LinkedIn** — footer links point to `linkedin.com/company/enduro-solutions`. Confirm that
-  is the right handle.
+- Email: `erochester@endurosolutionstrade.com`
+- LinkedIn: `linkedin.com/in/errol-rochester-18350615a`
 
 ---
 
