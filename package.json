@@ -1,0 +1,14 @@
+{
+  "name": "enduro-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Enduro Solutions marketing site — static, deployed to GitHub Pages",
+  "scripts": {
+    "build": "tailwindcss -i src/input.css -o assets/styles.css --minify",
+    "watch": "tailwindcss -i src/input.css -o assets/styles.css --watch",
+    "serve": "python3 -m http.server 8080"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
